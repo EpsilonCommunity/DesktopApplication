@@ -85,5 +85,4 @@ typings/
 # Webpack
 .webpack/
 
-out/make
 out/EpsilonCommunityDesktopApplication-win32-x64
