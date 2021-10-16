@@ -6,19 +6,21 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
   app.quit();
 }
 
-const createWindow = () => {
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-  });
+let mainWindow = null
 
-  // and load the index.html of the app.
+app.whenReady().then(() => {
+  // We cannot require the screen module until the app is ready.
+  const { screen, Tray } = require('electron')
+
+  // Create a window that fills the screen's available work area.
+  const primaryDisplay = screen.getPrimaryDisplay()
+  const { width, height } = primaryDisplay.workAreaSize
+  const branding = 'epsiloncommunity.png'
+
+  const appIcon = new Tray('/Users/somebody/images/icon.png')
+  mainWindow = new BrowserWindow({ width, height, icon:branding })
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-
-  // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
-};
+})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
