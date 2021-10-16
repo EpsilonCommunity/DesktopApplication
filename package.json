@@ -13,7 +13,7 @@
     },
     "keywords": [],
     "author": {
-        "name": "EpsilonCommunity",
+        "name": "Epsilon Community",
         "email": "46479078+EpsilonCommunity@users.noreply.github.com"
     },
     "repository": "EpsilonCommunity/DesktopApplication",
@@ -24,7 +24,7 @@
             "makers": [{
                     "name": "@electron-forge/maker-squirrel",
                     "config": {
-                        "name": "EpsilonCommunityDesktopApplication"
+                        "name": "Epsilon Community"
                     }
                 },
                 {
