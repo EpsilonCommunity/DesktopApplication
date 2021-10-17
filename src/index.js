@@ -73,16 +73,7 @@ let mainWindow = null
 
 app.whenReady().then(() => {
     // We cannot require the screen module until the app is ready.
-    const { screen, Tray, session, Notification } = require('electron')
-
-    session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-        callback({
-            responseHeaders: {
-                ...details.responseHeaders,
-                'Content-Security-Policy': ['default-src \'self\'']
-            }
-        })
-    })
+    const { screen, Tray } = require('electron')
 
     // Create a window that fills the screen's available work area.
     const primaryDisplay = screen.getPrimaryDisplay()
@@ -91,7 +82,7 @@ app.whenReady().then(() => {
 
     const appIcon = new Tray(branding)
     mainWindow = new BrowserWindow({ width, height, icon: branding })
-    mainWindow.loadFile(path.join(__dirname, 'index.html'));
+    mainWindow.loadFile(path.join(__dirname, '/epsilon.community/index.html'));
     mainWindow.removeMenu(true)
 })
 
